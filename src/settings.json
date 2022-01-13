@@ -1,0 +1,13 @@
+{
+  "options": {
+    "protocol": "D0Protocol",
+    "transport": "LocalFileTransport",
+    "transportSerialPort": "/dev/ir-usb0",
+    "transportSerialBaudrate": 9600,
+    "requestInterval": 600,
+    "transportHttpRequestUrl": "",
+    "obisNameLanguage": "en",
+    "transportLocalFilePath": "./test.d0",
+    "obisFallbackMedium": 6
+    }
+  }
