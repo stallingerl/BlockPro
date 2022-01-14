@@ -1,17 +1,24 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+var webpack = require('webpack');
+var path = require('path');
+var fs = require('fs');
 
-const path = require("path");
+var nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
   entry: "./src/index.ts",
+  target: 'node',
   output: {
-    path: path.resolve(__dirname, "dist"),
-  },
-  devServer: {
-    open: true,
-    host: "localhost",
+    path: path.resolve(__dirname, "build"),
+    filename: 'backend.js'
   },
   plugins: [
     // Add your plugins here
@@ -27,18 +34,14 @@ const config = {
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset",
-      },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
+      }
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-    fallback: {
-      "path": require.resolve("path-browserify")
-    }
-  }
+    extensions: [".tsx", ".ts", ".js"]
+  },
+  externals: nodeModules,
+  devtool: 'source-map'
 };
 
 module.exports = () => {

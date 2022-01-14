@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import { readFile } from 'fs/promises';
 import * as path from 'path';
 import { s } from './p2p/sharedState';
 
@@ -10,20 +10,10 @@ let id
 let node
 let firstPeer
 
-let settingsTable: any 
-
-let pa = path.join(__dirname, './settings.json')
-console.log("path: ", pa)
-
-fs.readFile(path.join(__dirname, './src/settings.json'), 'utf-8', (error, data) => {
-   settingsTable = data
-   console.log(data)
-   console.group("hleo")
-   console.log(error)
-})
+const settingsTable = JSON.parse(await readFile('./src/settings.json', 'utf-8'));
 
 s.options = settingsTable.options
-console.log(s.options)
+console.log("settingsTable", settingsTable)
 
 // Start Quiz
 console.log('Starting p2p Quiz')
@@ -34,3 +24,4 @@ console.log(peerIdConf)
 
 
 }
+main()
