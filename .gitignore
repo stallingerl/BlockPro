@@ -1,0 +1,11 @@
+node_modules
+
+# Ignore built ts files
+dist/**/*
+
+# ignore yarn.lock
+yarn.lock
+package-lock.json
+
+# ignore settings.json
+**/settings.json

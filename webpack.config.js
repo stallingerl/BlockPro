@@ -22,7 +22,7 @@ const config = {
       {
         test: /\.(ts|tsx)$/i,
         loader: "ts-loader",
-        exclude: ["/node_modules/"],
+        exclude: ["/node_modules/", "/src/settings.json"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -35,7 +35,10 @@ const config = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-  },
+    fallback: {
+      "path": require.resolve("path-browserify")
+    }
+  }
 };
 
 module.exports = () => {

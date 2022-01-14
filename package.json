@@ -10,9 +10,9 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "peer1": "webpack PEER=./peerIds/id-1.json LOG=./winnerBlockchain1.csv node dist/main.js",
-    "peer2": "webpack PEER=./peerIds/id-2.json LOG=./winnerBlockchain2.csv node dist/main.js",
-    "peer3": "webpack PEER=./peerIds/id-3.json LOG=./winnerBlockchain3.csv node dist/main.js"
+    "peer1": "PEER=./peerIds/id-1.json LOG=./winnerBlockchain1.csv node dist/main.js",
+    "peer2": "PEER=./peerIds/id-2.json LOG=./winnerBlockchain2.csv node dist/main.js",
+    "peer3": "PEER=./peerIds/id-3.json LOG=./winnerBlockchain3.csv node dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,9 @@
     "wepack-cli": "0.0.1-security"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "path-browserify": "^1.0.1",
     "uglifyjs-webpack-plugin": "^2.2.0"
   }
 }
