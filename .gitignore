@@ -1,4 +1,5 @@
 node_modules
+.test.d0
 
 # Ignore built ts files
 build/**/*

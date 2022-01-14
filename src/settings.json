@@ -7,7 +7,7 @@
     "requestInterval": 600,
     "transportHttpRequestUrl": "",
     "obisNameLanguage": "en",
-    "transportLocalFilePath": "./test.d0",
+    "transportLocalFilePath": "./.test.d0",
     "obisFallbackMedium": 6
     }
   }

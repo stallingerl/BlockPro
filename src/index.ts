@@ -1,6 +1,7 @@
 import { readFile } from 'fs/promises';
-import * as path from 'path';
 import { s } from './p2p/sharedState';
+import transportLocalFile from "./test/transportLocalFile"
+import createOrReadPeerId from './p2p/createOrReadPeerId'
 
 
 const main = async () => {
@@ -13,14 +14,15 @@ let firstPeer
 const settingsTable = JSON.parse(await readFile('./src/settings.json', 'utf-8'));
 
 s.options = settingsTable.options
-console.log("settingsTable", settingsTable)
+
+transportLocalFile(s.options.transportLocalFilePath);
 
 // Start Quiz
 console.log('Starting p2p Quiz')
 
 peerIdConf = process.env.PEER;
 
-console.log(peerIdConf)
+id = await createOrReadPeerId(peerIdConf)
 
 
 }
