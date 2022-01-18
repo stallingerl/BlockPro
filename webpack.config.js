@@ -40,6 +40,10 @@ const config = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
+  node: {
+    __filename: true,
+    __dirname: true
+  },
   externals: nodeModules,
   devtool: 'source-map'
 };
