@@ -1,3 +1,4 @@
+import createNode from './p2p/createNode'
 import { readFile } from 'fs/promises';
 import { s } from './p2p/sharedState';
 import transportLocalFile from "./test/transportLocalFile"
@@ -11,7 +12,6 @@ let id
 let node
 let firstPeer
 
-
 const settingsTable = JSON.parse(await readFile(path.join(__dirname, 'settings.json'), 'utf-8'));
 
 s.options = settingsTable.options
@@ -23,8 +23,9 @@ console.log('Starting p2p Quiz')
 
 peerIdConf = process.env.PEER;
 
-id = await createOrReadPeerId(peerIdConf)
+s.id = await createOrReadPeerId(peerIdConf)
 
-
+s.node = await createNode(id)
+console.log("snode")
 }
 main()

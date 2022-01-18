@@ -6,12 +6,11 @@ const PeerId = require('peer-id')
 
 const createOrReadPeerId = async (peerIdConf: any) => {
 
-    let peerId: any = await readFile(path.join(__dirname, peerIdConf), "utf-8")
-    console.log(peerId)
+    let peerId
 
     try {
       // read peerId from local json if available
-      peerId = await PeerId.createFromJSON(peerId)
+      peerId = await PeerId.createFromJSON(peerIdConf)
       console.log('Read existing peerId = ', peerId.toJSON().id)
     } catch (error) {
   
