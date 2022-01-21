@@ -45,6 +45,7 @@
     "@codewarriorr/electrum-client-js": "^0.1.1",
     "bip32": "^3.0.1",
     "bip39": "^3.0.4",
+    "bitcoinjs-lib": "^6.0.1",
     "crypto-js": "^4.1.1",
     "fs": "0.0.1-security",
     "hdkey": "^2.0.1",

@@ -7,6 +7,7 @@ import path from 'path';
 import peerDiscovery from './p2p/peerDiscovery'
 import { network } from './doichainjs-lib/index';
 import { createOrReadSeed } from './p2p/createOrReadSeed'
+import { createNewWallet } from "./doichainjs-lib/lib/createNewWallet"
 
 const main = async () => {
 
@@ -56,6 +57,9 @@ const main = async () => {
     s.basePath = `${s.purpose}/${s.coinType}/${s.account}`
 
     await createOrReadSeed(s.id)
+
+    s.wallet = await createNewWallet(s.hdkey, s.purpose, s.coinType, o_options, s.addrType, s.id)
+
 
     console.log(s.network)
 
