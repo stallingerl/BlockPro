@@ -1,12 +1,19 @@
 node_modules
-.test.d0
+**/winnerBlockchain1.csv
+**/winnerBlockchain2.csv
+**/winnerBlockchain3.csv
+**/derivationPaths
+**/encryptedS**
+**/.test.d0
+
+**/settings.json
 
 # Ignore built ts files
 build/**/*
 
 # ignore yarn.lock
 yarn.lock
-package-lock.json
+**/package-lock.json
 
 # ignore settings.json
 **/settings.json
