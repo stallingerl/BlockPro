@@ -4,6 +4,7 @@ import { s } from './p2p/sharedState';
 import transportLocalFile from "./test/transportLocalFile"
 import createOrReadPeerId from './p2p/createOrReadPeerId'
 import  path from 'path';
+import peerDiscovery from './p2p/peerDiscovery'
 
 const main = async () => {
 
@@ -24,8 +25,10 @@ console.log('Starting p2p Quiz')
 peerIdConf = process.env.PEER;
 
 s.id = await createOrReadPeerId(peerIdConf)
+console.log(s.id)
+s.node = await createNode(s.id)
 
-s.node = await createNode(id)
-console.log("snode")
+await peerDiscovery(s.node)
+
 }
 main()
